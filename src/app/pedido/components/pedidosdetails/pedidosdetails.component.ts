@@ -16,6 +16,7 @@ export class PedidosdetailsComponent {
 
   @Input() pedido: Pedido =  new Pedido();
   @Output() retorno = new EventEmitter<Pedido>();
+  @Input() desabilitaCampo!: boolean;
 
 
   pedidoService = inject(PedidoService);
@@ -23,8 +24,8 @@ export class PedidosdetailsComponent {
   modalRef!: NgbModalRef
 
   pedidoSelecionadoParaEdicao: Pedido = new Pedido();
-  indiceSelecionadoParaEdicao!: number;;
-
+  indiceSelecionadoParaEdicao!: number;
+  
   constructor(){
 
   }
@@ -42,8 +43,6 @@ export class PedidosdetailsComponent {
   }
 
   adicionarEndereco(modal: any) {
-    // this.pedidoSelecionadoParaEdicao = new Pedido();
-    // this.indiceSelecionadoParaEdicao = -1;
    this.modalRef = this.modalService.open(modal, { size: 'lg' });
   }
 

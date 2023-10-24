@@ -7,8 +7,12 @@
       [(ngModel)]="item.nome">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Tamanho::</label>
+    <label for="exampleInputPassword1" class="form-label">Tamanho:</label>
     <input type="text" class="form-control" name="exampleInputTelefone1" [(ngModel)]="item.tamanho">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Valor:</label>
+    <input type="text" class="form-control" name="exampleInputTelefone1" [(ngModel)]="item.valor">
   </div>
 
   <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
@@ -20,7 +24,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#ID</th>
+          <th scope="col">ID</th>
           <th scope="col">Sabores</th>
           <th scope="col" class="colspan-2">Acoes</th>
         </tr>

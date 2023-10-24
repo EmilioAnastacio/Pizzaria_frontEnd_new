@@ -24,11 +24,23 @@
     <div *ngFor="let pedido of listaFiltrada; let i = index" class="col-lg-3 margin">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ pedido.nome }}</h5>
-          <p class="card-text">
-            {{ pedido.observacao }}
-          </p>
+          <h3 class="card-title">{{ pedido.nome }}</h3>
+          <div class="card-text">
+            <div>
+              <h5>Observacao: </h5>
+              {{ pedido.observacao }}
+            </div>
+            
+            <br>
+            <div>
+              <h5>Valor Total: R${{pedido.valorTotal}}</h5>
+              
+            </div>
+          </div>
           <td *ngIf="!modoLancamento" class="col-md-1">
+            <button class="btn btn-primary" (click)="verDetalhes(modal1, pedido, i)">
+              <i class="bi bi-arrows-angle-expand"></i>
+            </button>
             <div class="btn-group " role="group">
                 <div class="" type="button" (click)="editar(modal1, pedido, i)">
                   <span class="badge bg-warning btn"> <i
@@ -54,7 +66,7 @@
     <button (click)="modal.dismiss('Cross click')" type="button" class="btn-close" aria-label="Close"></button>
   </div>
   <div class="modal-body">
-    <app-pedidosdetails [pedido]="pedidoSelecionadoParaEdicao"
+    <app-pedidosdetails [pedido]="pedidoSelecionadoParaEdicao" [desabilitaCampo]="desabilitaCampo"
       (retorno)="addOuEditarPessoa($event)"></app-pedidosdetails>
   </div>
   <div class="modal-footer">
