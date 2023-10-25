@@ -12,6 +12,9 @@ export class PedidoslistaComponent {
 
   @Input() modoLancamento = false;
 
+  roleSelecionada: string = 'FUNCIONARIO'; // Defina o valor padrão
+  mostrarBotoesRole: boolean = true;
+
   lista: Pedido[] = [];
   listaFiltrada: Pedido[] = [];
 
@@ -55,13 +58,6 @@ export class PedidoslistaComponent {
     this.desabilitaCampo = false;
   }
 
-  // verDetalhes(modal: any,pedido: Pedido, indice: number) {
-  //   const modalRef = this.modalService.open(modal, { size: 'lg' });
-  //   this.pedidoSelecionadoParaEdicao = Object.assign({}, pedido);
-  //   this.indiceSelecionadoParaEdicao = indice;
-  //   modalRef.componentInstance.desabilitarCampos = true; // Passe a variável que controla a desabilitação dos campos
-  // }
-
   verDetalhes(modal: any,pedido: Pedido, indice: number) {
     this.modalService.open(modal, { size: 'lg' });
     this.pedidoSelecionadoParaEdicao = Object.assign({}, pedido);
@@ -81,6 +77,11 @@ export class PedidoslistaComponent {
   addOuEditarPessoa(pedido: Pedido) {
     this.listAll();
     this.modalService.dismissAll();
+  }
+
+  definirRole(role: string) {
+    this.roleSelecionada = role;
+    this.mostrarBotoesRole = false; // Esconde os botões após selecionar uma ROLE
   }
 
   filtrar() {

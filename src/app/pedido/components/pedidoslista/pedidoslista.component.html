@@ -62,11 +62,12 @@
 
 <ng-template #modal1 let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">Cadastrar Pedido</h4>
     <button (click)="modal.dismiss('Cross click')" type="button" class="btn-close" aria-label="Close"></button>
   </div>
   <div class="modal-body">
-    <app-pedidosdetails [pedido]="pedidoSelecionadoParaEdicao" [desabilitaCampo]="desabilitaCampo"
+    <app-pedidosdetails [pedido]="pedidoSelecionadoParaEdicao" [desabilitaCampo]="desabilitaCampo" [roleSelecionada]="roleSelecionada"
+    [mostrarBotoesRole]="mostrarBotoesRole"
       (retorno)="addOuEditarPessoa($event)"></app-pedidosdetails>
   </div>
   <div class="modal-footer">

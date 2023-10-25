@@ -1,6 +1,7 @@
 <div class="container">
   
   <div class="row text-start">
+
     <div class="col-md-10">
       <h4>Lista de Pessoas!</h4>
       <div class="col-md-4">
@@ -10,7 +11,7 @@
             aria-describedby="inputGroup-sizing-default" [(ngModel)]="termoBusca" (ngModelChange)="filtrar()">
         </div> 
       </div>
-  </div>
+    </div>
   
   <div class="col-md-2">
     <button class="btn btn-success offset-md-5" (click)="adicionar(modal1)">Adicionar</button>
@@ -27,10 +28,10 @@
           <th scope="col" class="p-2 d-flex justify-content-center">Acoes</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider">
-        <tr *ngFor="let usuario of listaFiltrada; let i = index" class="col-md-12">
+      <tbody class="table-group-divider" *ngFor="let usuario of listaFiltrada; let i = index">
+        <tr class="col-md-12">
           <th scope="row" class="col-md-1">{{ usuario.id }}</th>
-          <td class="col-md-4"> {{ usuario.nome }} </td>
+          <td class="col-md-4" > {{ usuario.nome }} </td>
           <td class="col-md-2"> {{ usuario.telefone }} </td>
           <td class="col-md-2"> {{ usuario.cpf }} </td>
           <td *ngIf="!modoLancamento" class="col-md-1">
@@ -46,7 +47,7 @@
                       class="bi bi-trash3-fill"></i></span>
           </div>
           </td>
-          <td *ngIf="modoLancamento"> <button class="btn btn-primary" (click)="lancamentoUsuario(usuario)">Lançar</button> </td>
+          <td *ngIf="modoLancamento"> <button class="btn btn-primary" (click)="lancamentoUsuario(usuario)">Vincular</button> </td>
         </tr>
       </tbody>
     </table>
@@ -60,7 +61,7 @@
 
 <ng-template #modal1 let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title"></h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">

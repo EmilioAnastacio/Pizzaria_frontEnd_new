@@ -3,6 +3,7 @@ import { Usuario } from './../../usuario';
 import { UsuarioService } from './../../services/usuario.service';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Roles } from '../../roles';
 
 @Component({
   selector: 'app-pessoasdetails',
@@ -13,6 +14,7 @@ export class PessoasdetailsComponent {
 
   @Input() usuario: Usuario = new Usuario();
   @Output() retorno = new EventEmitter<Usuario>();
+
 
   usuarioService = inject(UsuarioService);
   modalService = inject(NgbModal);
@@ -28,7 +30,7 @@ export class PessoasdetailsComponent {
         this.retorno.emit(usuario);
       },
       error: erro => {
-        alert("Errro, olhar no console");
+        alert("Erro, olhe no console");
         console.log(erro);
       }
     });
