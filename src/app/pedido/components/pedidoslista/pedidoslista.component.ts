@@ -12,11 +12,15 @@ export class PedidoslistaComponent {
 
   @Input() modoLancamento = false;
 
+  roleSelecionada: string = 'FUNCIONARIO'; // Defina o valor padrão
+  mostrarBotoesRole: boolean = true;
+
   lista: Pedido[] = [];
   listaFiltrada: Pedido[] = [];
 
   pedidoSelecionadoParaEdicao: Pedido = new Pedido();
   indiceSelecionadoParaEdicao!: number;
+  desabilitaCampo!: boolean;
 
   modalService = inject(NgbModal);
   pedidoService = inject(PedidoService);
@@ -44,12 +48,21 @@ export class PedidoslistaComponent {
   adicionar(modal: any) {
     this.pedidoSelecionadoParaEdicao = new Pedido();
     this.modalService.open(modal, { size: 'lg' });
+    this.desabilitaCampo = false;
   }
 
   editar(modal:any, pedido: Pedido, indice: number) {
     this.pedidoSelecionadoParaEdicao = Object.assign({}, pedido);
     this.indiceSelecionadoParaEdicao = indice;
     this.modalService.open(modal, {size:"lg"});
+    this.desabilitaCampo = false;
+  }
+
+  verDetalhes(modal: any,pedido: Pedido, indice: number) {
+    this.modalService.open(modal, { size: 'lg' });
+    this.pedidoSelecionadoParaEdicao = Object.assign({}, pedido);
+    this.indiceSelecionadoParaEdicao = indice;
+    this.desabilitaCampo = true; // Passe a variável que controla a desabilitação dos campos.
   }
 
 
@@ -64,6 +77,11 @@ export class PedidoslistaComponent {
   addOuEditarPessoa(pedido: Pedido) {
     this.listAll();
     this.modalService.dismissAll();
+  }
+
+  definirRole(role: string) {
+    this.roleSelecionada = role;
+    this.mostrarBotoesRole = false; // Esconde os botões após selecionar uma ROLE
   }
 
   filtrar() {

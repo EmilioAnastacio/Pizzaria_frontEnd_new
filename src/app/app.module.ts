@@ -19,6 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './sistema/login/login.component';
 import { IndexComponent } from './components/layout/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FuncionariolistaComponent } from './funcionario/funcionariolista/funcionariolista.component';
+import { FuncionariodetailsComponent } from './funcionario/funcionariodetails/funcionariodetails/funcionariodetails.component';
+import { EnderecolistaComponent } from './endereco/Components/enderecolista/enderecolista/enderecolista.component';
+
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { HttpClientModule } from '@angular/common/http';
     ItemslistaComponent,
     ItemsdetailsComponent,
     SaboreslistaComponent,
-    SaboresdetailsComponent
+    SaboresdetailsComponent,
+    FuncionariolistaComponent,
+    FuncionariodetailsComponent,
+    EnderecolistaComponent,
+
 
 
 

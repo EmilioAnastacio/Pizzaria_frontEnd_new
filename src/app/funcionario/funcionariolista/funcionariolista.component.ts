@@ -1,31 +1,31 @@
-import { Usuario } from './../../usuario';
-import { UsuarioService } from './../../services/usuario.service';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UsuarioService } from 'src/app/usuario/services/usuario.service';
+import { Usuario } from 'src/app/usuario/usuario';
+import { Funcionario } from '../funcionario';
+import { FuncionarioService } from '../service/funcionario.service';
 
 @Component({
-  selector: 'app-pessoaslista',
-  templateUrl: './pessoaslista.component.html',
-  styleUrls: ['./pessoaslista.component.scss']
+  selector: 'app-funcionariolista',
+  templateUrl: './funcionariolista.component.html',
+  styleUrls: ['./funcionariolista.component.scss']
 })
-export class PessoaslistaComponent {
+export class FuncionariolistaComponent {
 
   @Input() modoLancamento = false;
-  @Output() usuarioRetorno = new EventEmitter<Usuario>();
+  @Output() funcionarioRetorno = new EventEmitter<Funcionario>();
  
-
-  lista: Usuario[] = [];
-  listaFiltrada: Usuario[] = [];
+  lista: Funcionario[] = [];
+  listaFiltrada: Funcionario[] = [];
   
-
-  roleSelecionada: string = "CLIENTE";
+  roleSelecionada: string = "FUNCIONARIO";
   mostrarBotoesRole: boolean = true;
 
-  usuarioSelecionadoParaEdicao: Usuario = new Usuario();
+  funcionarioSelecionadoParaEdicao: Funcionario = new Funcionario();
   indiceSelecionadoParaEdicao!: number;
 
   modalService = inject(NgbModal);
-  usuarioService = inject(UsuarioService);
+  funcionarioService = inject(FuncionarioService);
   termoBusca: string = "";
 
   constructor() {
@@ -33,10 +33,9 @@ export class PessoaslistaComponent {
   }
 
   listAll() {
-    this.usuarioService.list().subscribe({
+    this.funcionarioService.list().subscribe({
       next: lista => {
         this.lista = lista;
-        //this.listaFiltrada = Object.assign({}, lista);
         this.listaFiltrada  = lista;
         
       },
@@ -48,25 +47,25 @@ export class PessoaslistaComponent {
   }
 
   adicionar(modal: any) {
-    this.usuarioSelecionadoParaEdicao = new Usuario();
+    this.funcionarioSelecionadoParaEdicao = new Funcionario();
     this.modalService.open(modal, { size: 'md' });
   }
 
-  editar(modal:any, usuario: Usuario, indice: number) {
-    this.usuarioSelecionadoParaEdicao = Object.assign({}, usuario);
+  editar(modal:any, funcionario: Funcionario, indice: number) {
+    this.funcionarioSelecionadoParaEdicao = Object.assign({}, funcionario);
     this.indiceSelecionadoParaEdicao = indice;
     this.modalService.open(modal, {size:"md"});
   }
 
-  deletar(usuario : Usuario){
-    this.usuarioService.deletar(usuario.id).subscribe(
+  deletar(funcionario : Funcionario){
+    this.funcionarioService.deletar(funcionario.id).subscribe(
       () =>{
         this.listAll();
       }
     )
   }
 
-  addOuEditarPessoa(usuario: Usuario) {
+  addOuEditarFuncionario(funcionario: Funcionario) {
     this.listAll();
     this.modalService.dismissAll();
 
@@ -95,8 +94,8 @@ export class PessoaslistaComponent {
     this.roleSelecionada = role;
   }
 
-  lancamentoUsuario(usuario : Usuario){
-    this.usuarioRetorno.emit(usuario);
+  lancamentoFuncionario(funcionario : Funcionario){
+    this.funcionarioRetorno.emit(funcionario);
   }
 
 }

@@ -6,6 +6,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './sistema/login/login.component';
 import { IndexComponent } from './components/layout/index/index.component';
+import { FuncionariolistaComponent } from './funcionario/funcionariolista/funcionariolista.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path:'pessoas', component:PessoaslistaComponent},
       {path:'pedidos', component:PedidoslistaComponent},
       {path:'itens', component:ItemslistaComponent},
-      {path:'sabores', component:SaboreslistaComponent}
+      {path:'sabores', component:SaboreslistaComponent},
+      {path:'funcionarios', component:FuncionariolistaComponent}
     ]
   }
 ];

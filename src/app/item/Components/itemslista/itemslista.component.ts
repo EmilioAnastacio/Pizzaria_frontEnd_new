@@ -76,7 +76,7 @@ export class ItemslistaComponent {
       this.listaFiltrada = [];
       for(let i =0;i < this.lista.length; i++){
         for(let j =0; j < this.lista[i].sabores.length;i++){
-          if(this.lista[i].sabores[i].nome.toLowerCase().indexOf(this.termoBusca.toLowerCase()) >= 0){ //VERIFICANDO SE EXISTE O TRECHO DO TERMOBUSCA DENRO DO NOME DO OBJETO USUARIO
+          if(this.lista[i].sabores[i].nome.toLowerCase().indexOf(this.termoBusca.toLowerCase()) >= 0){ 
             this.listaFiltrada.push(this.lista[i]);
           }
         }
