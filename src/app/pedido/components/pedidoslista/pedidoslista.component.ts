@@ -35,7 +35,6 @@ export class PedidoslistaComponent {
     this.pedidoService.listAll().subscribe({
       next: lista => {
         this.lista = lista;
-        //this.listaFiltrada = Object.assign({}, lista);
         this.listaFiltrada  = lista;
       },
       error: error => {
@@ -62,7 +61,7 @@ export class PedidoslistaComponent {
     this.modalService.open(modal, { size: 'lg' });
     this.pedidoSelecionadoParaEdicao = Object.assign({}, pedido);
     this.indiceSelecionadoParaEdicao = indice;
-    this.desabilitaCampo = true; // Passe a variável que controla a desabilitação dos campos.
+    this.desabilitaCampo = true;
   }
 
 
@@ -81,14 +80,14 @@ export class PedidoslistaComponent {
 
   definirRole(role: string) {
     this.roleSelecionada = role;
-    this.mostrarBotoesRole = false; // Esconde os botões após selecionar uma ROLE
+    this.mostrarBotoesRole = false;
   }
 
   filtrar() {
     if(this.termoBusca.length > 2){
       this.listaFiltrada = [];
       for(let i =0;i < this.lista.length; i++){
-        if(this.lista[i].nome.toLowerCase().indexOf(this.termoBusca.toLowerCase()) >= 0){ //VERIFICANDO SE EXISTE O TRECHO DO TERMOBUSCA DENRO DO NOME DO OBJETO USUARIO
+        if(this.lista[i].nome.toLowerCase().indexOf(this.termoBusca.toLowerCase()) >= 0){
           this.listaFiltrada.push(this.lista[i]);
         }
       }

@@ -36,16 +36,6 @@ export class PedidoService {
     return this.http.delete<string>(`${this.API}/deletar/${id}`);
   }
 
-  // verify(pedido:Pedido){
-  //   if(pedido.id){
-  //       this.edit(pedido);
-  //   }else{
-  //     this.save(pedido);
-  //   }
-  // }
-
-
-
   verify(pedido: Pedido): Observable<Pedido> {
     if (pedido.id) {
       console.log('a ');

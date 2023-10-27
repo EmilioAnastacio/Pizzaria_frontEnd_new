@@ -37,21 +37,27 @@
               
             </div>
           </div>
-          <td *ngIf="!modoLancamento" class="col-md-1">
-            <button class="btn btn-primary" (click)="verDetalhes(modal1, pedido, i)">
-              <i class="bi bi-arrows-angle-expand"></i>
-            </button>
+          <td *ngIf="!modoLancamento" class="col-md-1 me-1">
+
             <div class="btn-group " role="group">
-                <div class="" type="button" (click)="editar(modal1, pedido, i)">
+
+                <div class="" type="button" (click)="verDetalhes(modal1, pedido, i)">
+                  <span class="badge bg-primary btn">
+                    <i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+
+                <div class="col ms-1" type="button" (click)="editar(modal1, pedido, i)">
                   <span class="badge bg-warning btn"> <i
                     class="bi bi-pen-fill"></i></span>
                 </div>
+
+                <div class="col ms-1" type="button" (click)="deletar(pedido)">
+                  <span class="badge bg-danger btn"> <i
+                          class="bi bi-trash3-fill"></i></span>
+                </div>
+
             </div>
-            <div class="col-md-1 btn" type="button" (click)="deletar(pedido)">
-              <!-- <button class="badge rounded-pill text-bg-primary retiraBorda" (click)="deletar()">Editar</button> -->
-              <span class="badge bg-danger btn"> <i
-                      class="bi bi-trash3-fill"></i></span>
-          </div>
+            
           </td>
         </div>
       </div>

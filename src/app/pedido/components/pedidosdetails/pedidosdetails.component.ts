@@ -66,6 +66,10 @@ export class PedidosdetailsComponent {
     this.pedido.item.push(item);
     this.modalRef.dismiss();
   }
+  //abrir modal 1
+  lancar(modal: any){
+    this.modalRef = this.modalService.open(modal, {size: "lg"});
+  }
   //abrir modal 2
   lancarUsuario(modal: any){
     this.modalRef = this.modalService.open(modal, {size: "lg"});
@@ -94,10 +98,7 @@ export class PedidosdetailsComponent {
     this.numCasa = endereco.numCasa;
   }
 
-  //abrir modal 1
-  lancar(modal: any){
-    this.modalRef = this.modalService.open(modal, {size: "lg"});
-  }
+  
 
 
 }
