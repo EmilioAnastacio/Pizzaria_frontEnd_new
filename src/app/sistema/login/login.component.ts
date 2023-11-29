@@ -14,13 +14,7 @@ export class LoginComponent {
 login : Login = new Login();
 roteador = inject(Router);
 
+  
 
-logar(){
-  if(this.login.senha == "admin" && this.login.email == "admin"){
-    this.roteador.navigate(['admin/pessoas']);
-  }else{
-    alert('Login ou senha incorretos!');
-  }
-}
 
 }

@@ -9,5 +9,5 @@ export class Usuario {
   cpf!: string;
   enderecos!: Endereco[];
   login!: Login;
-  roles!: string;
+
 }

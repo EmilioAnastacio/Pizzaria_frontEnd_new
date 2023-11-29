@@ -8,6 +8,7 @@ import { ItemsdetailsComponent } from './item/Components/itemsdetails/itemsdetai
 import { SaboreslistaComponent } from './sabor/components/saboreslista/saboreslista.component';
 import { SaboresdetailsComponent } from './sabor/components/saboresdetails/saboresdetails.component';
 
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -42,9 +43,7 @@ import { EnderecolistaComponent } from './endereco/Components/enderecolista/ende
     SaboresdetailsComponent,
     FuncionariolistaComponent,
     FuncionariodetailsComponent,
-    EnderecolistaComponent,
-
-
+    EnderecolistaComponent
 
 
   ],
@@ -55,7 +54,9 @@ import { EnderecolistaComponent } from './endereco/Components/enderecolista/ende
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
