@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SaboresService {
 
-  API: string = 'http://localhost:8080/api/sabor';
+  API: string = 'http://localhost:8080/api/sabores';
   http = inject(HttpClient);
 
   constructor() { }
@@ -20,6 +20,10 @@ export class SaboresService {
 
   save(sabor: Sabor): Observable<Sabor> {
     return this.http.post<Sabor>(this.API, sabor);
+  }
+
+  deletar(id : number):Observable<Sabor>{
+    return this.http.delete<Sabor>(`${this.API}/deletar/${id}`);
   }
 
 

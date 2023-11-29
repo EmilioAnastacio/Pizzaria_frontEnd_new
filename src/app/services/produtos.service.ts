@@ -8,7 +8,7 @@ import { Produto } from '../models/produto';
 })
 export class ProdutosService {
 
-  API: string = 'http://localhost:8080/api/produto';
+  API: string = 'http://localhost:8080/api/itens';
   http = inject(HttpClient);
 
   constructor() { }
@@ -20,6 +20,10 @@ export class ProdutosService {
 
   save(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this.API, produto);
+  }
+
+  deletar(id: number): Observable<Produto> {
+    return this.http.delete<Produto>(`${this.API}/deletar/${id}`);
   }
 
 

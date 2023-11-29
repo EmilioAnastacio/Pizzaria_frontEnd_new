@@ -4,4 +4,5 @@ export class Produto {
     temSabores!: boolean;
     maximoSabores!: number;
     valor!: number;
+    tamanho!: string;
 }
