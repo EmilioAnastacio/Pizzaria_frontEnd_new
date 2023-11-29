@@ -19,16 +19,6 @@ export class EnderecosdetailsComponent {
 
     this.retorno.emit(this.endereco);
 
-    // this.enderecoService.verify(this.endereco).subscribe({
-    //   next: endereco =>{
-    //     this.retorno.emit(endereco);
-    //   },
-    //   error: erro =>{
-    //     alert("Errro, olhar no console");
-    //     console.log(erro);
-    //   }
-    // });
-
   }
 
 }

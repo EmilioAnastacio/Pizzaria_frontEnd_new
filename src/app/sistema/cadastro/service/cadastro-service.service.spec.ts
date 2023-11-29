@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PedidoService } from './pedido.service';
+import { CadastroServiceService } from './cadastro-service.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('PedidoService', () => {
-  let service: PedidoService;
+describe('CadastroServiceService', () => {
+  let service: CadastroServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -13,7 +13,7 @@ describe('PedidoService', () => {
         CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA
       ],
       imports: [HttpClientTestingModule],});
-    service = TestBed.inject(PedidoService);
+    service = TestBed.inject(CadastroServiceService);
   });
 
   it('should be created', () => {

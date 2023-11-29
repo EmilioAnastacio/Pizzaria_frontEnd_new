@@ -7,10 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './sistema/login/login.component';
 import { IndexComponent } from './components/layout/index/index.component';
 import { FuncionariolistaComponent } from './funcionario/funcionariolista/funcionariolista.component';
+import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   {path:'login', component:LoginComponent},
+  {path:'cadastrar', component:CadastroComponent},
   {
     path:'admin', component:IndexComponent,children:[
       {path:'pessoas', component:PessoaslistaComponent},

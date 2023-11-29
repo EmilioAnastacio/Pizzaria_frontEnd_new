@@ -23,8 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FuncionariolistaComponent } from './funcionario/funcionariolista/funcionariolista.component';
 import { FuncionariodetailsComponent } from './funcionario/funcionariodetails/funcionariodetails/funcionariodetails.component';
 import { EnderecolistaComponent } from './endereco/Components/enderecolista/enderecolista/enderecolista.component';
-
-
+import { httpInterceptorProviders } from './interceptor/httpincerceptor.service';
+import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,8 @@ import { EnderecolistaComponent } from './endereco/Components/enderecolista/ende
     SaboresdetailsComponent,
     FuncionariolistaComponent,
     FuncionariodetailsComponent,
-    EnderecolistaComponent
-
-
+    EnderecolistaComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +54,7 @@ import { EnderecolistaComponent } from './endereco/Components/enderecolista/ende
     HttpClientModule
   ],
   providers: [
-
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

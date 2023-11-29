@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody class="table-group-divider" *ngFor="let funcionario of listaFiltrada; let i = index">
-          <tr class="col-md-12" *ngIf="funcionario.roles === 'FUNCIONARIO' ">
+          <tr class="col-md-12" >
             <th scope="row" class="col-md-1">{{ funcionario.id }}</th>
             <td class="col-md-4" > {{ funcionario.nome }} </td>
             <td class="col-md-2"> {{ funcionario.telefone }} </td>
