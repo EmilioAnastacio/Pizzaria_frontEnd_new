@@ -20,12 +20,12 @@ const routes: Routes = [
       {path:'itens', component:ItemslistaComponent},
       {path:'sabores', component:SaboreslistaComponent},
       {path:'funcionarios', component:FuncionariolistaComponent}
-    ]
+    ], 
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
